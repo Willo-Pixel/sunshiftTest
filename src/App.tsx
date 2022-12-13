@@ -52,7 +52,7 @@ function App() {
           <tbody>
             {userList.map( (user:UserListTypes, index:number) => 
              <TableBody
-                key ={`${user.id.value}${index}`}
+                key={`${user.id.value}${index}`}
                 user={user}
                 index={index}
               />
