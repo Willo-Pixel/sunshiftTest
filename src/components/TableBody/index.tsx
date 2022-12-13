@@ -19,7 +19,11 @@ function TableBody({user, index,}:TableBodyTypes) {
         <td>{user.lastName}</td>
         <td>{user.email}</td>
         <td>{user.phone}</td>
-        <td style={{cursor:'pointer'}} onClick={handleShow}><BsFillPersonLinesFill/></td>
+        <td>
+          <Button onClick={handleShow} variant="light">
+            <BsFillPersonLinesFill/>
+          </Button>
+        </td>
       </tr>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
