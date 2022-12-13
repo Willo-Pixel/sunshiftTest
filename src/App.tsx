@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import './App.css';
-import { getUserData } from './services/services';
-import { UserListTypes } from './types';
-import Table from 'react-bootstrap/Table';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { UserListTypes } from './types';
+
+import { getUserData } from './services/services';
+
+import Table from 'react-bootstrap/Table';
+import TableBody from './components/TableBody';
 
 function App() {
 
@@ -35,28 +38,25 @@ function App() {
 
   return (
     <div>
-        <Table striped={false} bordered={true} hover={true} variant="dark">
+        <Table striped={true} bordered={true} hover={true} variant="dark">
           <thead>
             <tr>
-              <th>#</th>
               <th>Picture</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
               <th>Phone</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
-            {(userList.map( (user:UserListTypes, index:number) => 
-                <tr>
-                  <td>{index}</td>
-                  <td><img src={user.image} alt='profile'></img></td>
-                  <td>{user.firstName}</td>
-                  <td>{user.lastName}</td>
-                  <td>{user.email}</td>
-                  <td>{user.phone}</td>
-                </tr>
-            ))}
+            {userList.map( (user:UserListTypes, index:number) => 
+             <TableBody
+                key ={`${user.id.value}${index}`}
+                user={user}
+                index={index}
+              />
+            )}
           </tbody>
         </Table>
     </div>
