@@ -30,7 +30,7 @@ function TableBody({user, index,}:TableBodyTypes) {
           <Modal.Title>User Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-            <React.Fragment key ={`details ${index}`}>
+            <React.Fragment key={`details ${index}`}>
               <div> {user.firstName} {user.lastName}'s details</div>
               <div> Street: #{user.location.street.number} {user.location.street.name}</div>
               <div> City: {user.location.city} </div>
